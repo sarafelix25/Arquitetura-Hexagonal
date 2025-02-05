@@ -1,4 +1,4 @@
-package com.example.hexagonal.hexagonal;
+package com.example.hexagonal;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
