@@ -6,6 +6,6 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface CustomerRepository extends MongoRepository<CustomerEntity, String> {
 
-    public void save(Customer custumer);
+    public void save(Customer customer);
 
 }
