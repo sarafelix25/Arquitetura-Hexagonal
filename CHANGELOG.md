@@ -5,3 +5,4 @@
 - Creating Client
 - Creating Adapter for address
 - Creating Repository
+- Creating Adapter to insert Client
