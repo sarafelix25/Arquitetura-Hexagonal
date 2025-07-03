@@ -14,5 +14,4 @@ public interface FindAddressByZipCodeClient {
 
     @GetMapping("/{zipCode}")
     AddressResponse find(@PathVariable("zipCode") String zipCode);
-git
 }
