@@ -9,3 +9,5 @@
     - Creating Adapter to insert Client.
     - Creating Controller.
 - CRUD - Read
+    - Creating UseCase.
+    - Creating Adapter.
