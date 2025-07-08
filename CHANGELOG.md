@@ -10,3 +10,4 @@
     - Creating Controller.
 - CRUD - Read
     - Creating UseCase.
+    - Creating Adapter.
