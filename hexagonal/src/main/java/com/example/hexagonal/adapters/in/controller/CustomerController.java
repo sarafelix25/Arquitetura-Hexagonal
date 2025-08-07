@@ -7,20 +7,15 @@ import com.example.hexagonal.application.ports.in.FindCustomerByIdInputPort;
 import com.example.hexagonal.application.ports.in.InsertCustomerInputPort;
 import com.example.hexagonal.adapters.in.controller.response.CustomerResponse;
 
-<<<<<<< HEAD
 import com.example.hexagonal.application.ports.in.UpdateCustomerInputPort;
-=======
->>>>>>> 735386c (Develop (#15))
+import com.example.hexagonal.application.ports.out.DeleteCustomerByIdOutputPort;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-<<<<<<< HEAD
 import org.springframework.web.bind.annotation.PutMapping;
-=======
->>>>>>> 735386c (Develop (#15))
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import javax.validation.Valid;
@@ -36,12 +31,12 @@ public class CustomerController {
     private FindCustomerByIdInputPort findCustomerByIdInputPort;
 
     @Autowired
-<<<<<<< HEAD
     private UpdateCustomerInputPort updateCustomerInputPort;
 
     @Autowired
-=======
->>>>>>> 735386c (Develop (#15))
+    private DeleteCustomerByIdOutputPort deleteCustomerByIdOutputPort;
+
+    @Autowired
     private CustomerMapper customerMapper;
 
     @PostMapping
@@ -64,6 +59,12 @@ public class CustomerController {
         Customer customer = customerMapper.toCustomer(customerRequest);
         customer.setId(id);
         updateCustomerInputPort.update(customer, customerRequest.getZipCode());
+        return ResponseEntity.noContent().build();
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable final String id) {
+        deleteCustomerByIdOutputPort.delete(id);
         return ResponseEntity.noContent().build();
     }
 }
