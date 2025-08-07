@@ -18,3 +18,5 @@
     - Creating Controller.
 - CRUD - Delete
     - Creating UseCase.
+    - Creating Adapter.
+    - Creating Controller.

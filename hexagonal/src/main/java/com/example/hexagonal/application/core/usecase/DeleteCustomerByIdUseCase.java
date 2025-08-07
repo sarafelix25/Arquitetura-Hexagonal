@@ -1,8 +1,9 @@
 package com.example.hexagonal.application.core.usecase;
+import com.example.hexagonal.application.ports.in.DeleteCustomerByIdInputPort;
 import com.example.hexagonal.application.ports.in.FindCustomerByIdInputPort;
 import com.example.hexagonal.application.ports.out.DeleteCustomerByIdOutputPort;
 
-public class DeleteCustomerByIdUseCase {
+public class DeleteCustomerByIdUseCase implements DeleteCustomerByIdInputPort {
 
     private final FindCustomerByIdInputPort findCustomerByIdInputPort;
 
@@ -16,6 +17,7 @@ public class DeleteCustomerByIdUseCase {
         this.deleteCustomerByIdOutputPort = deleteCustomerByIdOutputPort;
     }
 
+    @Override
     public void delete(String id) {
         findCustomerByIdInputPort.findById(id);
         deleteCustomerByIdOutputPort.delete(id);

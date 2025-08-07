@@ -8,6 +8,7 @@ import com.example.hexagonal.application.ports.in.InsertCustomerInputPort;
 import com.example.hexagonal.adapters.in.controller.response.CustomerResponse;
 
 import com.example.hexagonal.application.ports.in.UpdateCustomerInputPort;
+import com.example.hexagonal.application.ports.out.DeleteCustomerByIdOutputPort;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -33,6 +34,9 @@ public class CustomerController {
     private UpdateCustomerInputPort updateCustomerInputPort;
 
     @Autowired
+    private DeleteCustomerByIdOutputPort deleteCustomerByIdOutputPort;
+
+    @Autowired
     private CustomerMapper customerMapper;
 
     @PostMapping
@@ -55,6 +59,12 @@ public class CustomerController {
         Customer customer = customerMapper.toCustomer(customerRequest);
         customer.setId(id);
         updateCustomerInputPort.update(customer, customerRequest.getZipCode());
+        return ResponseEntity.noContent().build();
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable final String id) {
+        deleteCustomerByIdOutputPort.delete(id);
         return ResponseEntity.noContent().build();
     }
 }
