@@ -3,6 +3,7 @@ package com.example.hexagonal.adapters.in.controller.mapper;
 import com.example.hexagonal.application.core.domain.Customer;
 
 import com.example.hexagonal.application.ports.in.CustomerResponse;
+import response.CustomerResponse;
 
 import org.mapstruct.*;
 
