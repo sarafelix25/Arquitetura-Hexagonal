@@ -2,7 +2,7 @@ package com.example.hexagonal.application.ports.in;
 
 import com.example.hexagonal.application.core.domain.*;
 
-public interface InsertCustomerInputPort {
+public interface UpdateCustomerInputPort {
 
-    void insert(Customer customer, String zipCode);
+    void update(Customer customer, String zipCode);
 }
