@@ -20,3 +20,4 @@
     - Creating UseCase.
     - Creating Adapter.
     - Creating Controller.
+- Creating beans
